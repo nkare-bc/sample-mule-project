@@ -1,0 +1,51 @@
+{
+	"info": {
+		"_postman_id": "6dbf76e1-1ab9-48dc-b2a6-d2ec3e66d182",
+		"name": "ODL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Metrics",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "wcuAQhKNuAn2WuU7mvqwbZ4f6vuy2gBZVAE+lyw2UECfjJIPYClxCgJPbsTvPKkw",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "QJHXMG6ZX4SEJ6IR",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"ODL_Provider_Sink\",\r\n  \"config\": {\r\n    \"connector.class\": \"MongoDbAtlasSink\",\r\n    \"name\": \"ODL_Provider_Sink\",\r\n    \"input.data.format\": \"AVRO\",\r\n    \"kafka.api.key\": \"************\",\r\n    \"topics\": \"Provider_Output\",\r\n    \"connection.host\": \"mvp-poc-dedicated.aiwyo.mongodb.net\",\r\n    \"connection.user\": \"confluent_cloud_sink_user\",\r\n    \"database\": \"pocDB\",\r\n    \"collection\": \"Provider\",\r\n    \"delete.on.null.values\": \"false\",\r\n    \"doc.id.strategy\": \"PartialValueStrategy\",\r\n    \"doc.id.strategy.overwrite.existing\": \"true\",\r\n    \"key.projection.type\": \"blocklist\",\r\n    \"value.projection.type\": \"allowlist\",\r\n    \"value.projection.list\": \"National_Provider_Identifier\",\r\n    \"write.strategy\": \"UpdateOneBusinessKeyTimestampStrategy\",\r\n    \"tasks.max\": \"5\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "",
+					"query": [
+						{
+							"key": "name",
+							"value": "test",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
